@@ -1,8 +1,8 @@
 ```mermaid
 flowchart TD
 
-    A[Driver (Spark Application)]
-    A --> B[Cluster Manager (YARN / Kubernetes)]
+    A[Driver Spark Driver]
+    A --> B[Cluster Manager YARN-Kubernetes]
 
     B --> C1[Worker Node 1]
     B --> C2[Worker Node 2]
@@ -44,7 +44,7 @@ flowchart TD
     F6 --> G6[Partition 6]
     F7 --> G7[Partition 7]
     F8 --> G8[Partition 8]
-
+```
 
 # Lazy Operations in Spark
 
