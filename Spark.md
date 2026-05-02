@@ -1,15 +1,17 @@
 ```mermaid
 flowchart TD
 
-    A[Driver<br>(Spark Application)] --> B[Cluster Manager<br>(YARN / Kubernetes)]
+    A[Driver (Spark Application)]
+    A --> B[Cluster Manager (YARN / Kubernetes)]
 
     B --> C1[Worker Node 1]
     B --> C2[Worker Node 2]
-    B --> C3[Worker Node 3]
 
-    C1 --> D1[Executor]
-    C2 --> D2[Executor]
-    C3 --> D3[Executor]
+    C1 --> D1[Executor 1]
+    C1 --> D2[Executor 2]
+
+    C2 --> D3[Executor 3]
+    C2 --> D4[Executor 4]
 
     D1 --> E1[Core 1]
     D1 --> E2[Core 2]
@@ -20,20 +22,28 @@ flowchart TD
     D3 --> E5[Core 1]
     D3 --> E6[Core 2]
 
+    D4 --> E7[Core 1]
+    D4 --> E8[Core 2]
+
+    %% Tasks run on cores
     E1 --> F1[Task]
     E2 --> F2[Task]
     E3 --> F3[Task]
     E4 --> F4[Task]
     E5 --> F5[Task]
     E6 --> F6[Task]
+    E7 --> F7[Task]
+    E8 --> F8[Task]
 
-    F1 --> G[Partitions]
-    F2 --> G
-    F3 --> G
-    F4 --> G
-    F5 --> G
-    F6 --> G
-```
+    %% Each task processes one partition
+    F1 --> G1[Partition 1]
+    F2 --> G2[Partition 2]
+    F3 --> G3[Partition 3]
+    F4 --> G4[Partition 4]
+    F5 --> G5[Partition 5]
+    F6 --> G6[Partition 6]
+    F7 --> G7[Partition 7]
+    F8 --> G8[Partition 8]
 
 
 # Lazy Operations in Spark
